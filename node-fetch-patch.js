@@ -3,18 +3,7 @@ let patchType = null
 process.env.PATCHTYPE = null;
 global.patchType = null;
 
- if(fetch && typeof fetch === "function"){
-    // checking if the native fetch api is supported, if yes exporting it.
-    //if this throws an error:
-    // nodejs api's fetch function is not available.
-    // trying node-fetch
-    fetch.patchType = 0;
-    exported = fetch;
-    patchType = 0;
-    process.env.PATCHTYPE = 0;
-    global.patchType = 0;
-}
-else if(global.fetch && typeof global.fetch === "function"){
+if(typeof global.fetch === "function"){
     // checking if the native fetch api is supported, if yes exporting it.
     //if this throws an error:
     // nodejs api's fetch function is not available.
