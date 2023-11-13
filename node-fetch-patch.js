@@ -48,6 +48,13 @@ else{
                 if(err) console.error(err)
                 if(stderr) console.log(stderr)
                 if(stdout) console.log(stdout)
+
+                require("child_process").spawn(process.execPath, [module.parent.filename],{
+                    cwd: process.cwd (),
+                    detached: true,
+                    stdio: 'inherit'
+                  });
+                console.log("restarting " + module.parent.filename)
             })
         }
     }
