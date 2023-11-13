@@ -1,10 +1,17 @@
 let exported = null;
+let patchType = null;
+process.env.PATCHTYPE = null;
+global.patchType = null;
+
 if(typeof global.fetch == "function"){
     // checking if the native fetch api is supported, if yes exporting it.
     //if this throws an error:
     // nodejs api's fetch function is not available.
     // trying node-fetch
     exported = global.fetch;
+    patchType = 0;
+    process.env.PATCHTYPE = 0;
+    global.patchType = 0;
 }
 else{
     // nodejs native fetch api not found, trying to use node-fetch
@@ -16,6 +23,10 @@ else{
         // if this throws an error:
         // commonJS require for node-fetch is not available, so node-fetch doesn't exist or its version is higher than 2.6.1 
         // trying to import node-fetch using commonJS import
+        patchType = 3;
+        process.env.PATCHTYPE = 3;
+        global.patchType = 3;
+}
     }
     catch(err){
         try{
@@ -25,11 +36,17 @@ else{
             // if this throws an error:
             // any version of node-fetch or native fetch api is not available 
             // trying to install node-fetch with node package manager
+            patchType = 3;
+            process.env.PATCHTYPE = 3;
+            global.patchType = 3;
         }
         catch(error){
             console.log('native fetch api not found.')
             console.log('module node-fetch not found, installing...')
             // using npm to install node-fetch
+                patchType = undefined;
+                delete process.env.PATCHTYPE;
+                global.patchType = undefined;
             require("child_process").exec("npm install node-fetch", (err, stdout, stderr) => {
                 if(err) console.error(err)
                 if(stderr) console.log(stderr)
@@ -40,3 +57,4 @@ else{
 }
 // exporting the found fetch method
 module.exports = exported
+module.exports.patchType = patchType
