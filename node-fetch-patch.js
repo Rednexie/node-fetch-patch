@@ -1,5 +1,5 @@
-let exported = null;
-let patchType = null;
+let exported = {};
+let patchType = null
 process.env.PATCHTYPE = null;
 global.patchType = null;
 
