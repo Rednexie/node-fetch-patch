@@ -26,7 +26,6 @@ else{
         patchType = 3;
         process.env.PATCHTYPE = 3;
         global.patchType = 3;
-}
     }
     catch(err){
         try{
