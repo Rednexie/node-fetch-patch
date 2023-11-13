@@ -40,8 +40,6 @@ else{
             global.patchType = 3;
         }
         catch(error){
-            console.log('native fetch api not found.')
-            console.log('module node-fetch not found, installing...')
             // using npm to install node-fetch
                 patchType = undefined;
                 delete process.env.PATCHTYPE;
