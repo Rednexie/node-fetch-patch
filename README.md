@@ -11,7 +11,7 @@ const fetch = require('./node-fetch-patch');
 - If it doesn't work, tries to import node-fetch with async import function. This works for the verions above 2.6.1.
 - If any of those work, it installs node-fetch using node package manager.
 
-# Where was it imported from?
+# How do I know where 'fetch' was imported from?
 node-fetch-patch will add a property to let you know this:
 - environment variables (process.env.PATCHTYPE)
 - global (global.patchType)
