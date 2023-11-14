@@ -2,11 +2,11 @@
 a nodejs fetch polyfill/patch, ensures the availability across environments and versions. 
 
 # How does it work?
-import the <a target="_blank" href="https://raw.githubusercontent.com/Rednexie/node-fetch-patch/main/node-fetch-patch-all.js" download="node-fetch-patch-all.js">main file</a> (for v10.0 - 20.8.1)
+import the <a target="_blank" href="https://raw.githubusercontent.com/Rednexie/node-fetch-patch/main/node-fetch-patch.js" download="node-fetch-patch.js">main file</a> (for v10.0 - 20.8.1)
 ```js
 const fetch = require('./node-fetch-patch');
 ```
-or import the [other](https://raw.githubusercontent.com/Rednexie/node-fetch-patch/main/node-fetch-patch-all.js) to use with nodejs versions below 10 (since async import is not available)
+or the [other one](https://raw.githubusercontent.com/Rednexie/node-fetch-patch/main/node-fetch-patch-all.js) to use with nodejs versions below 10 (since async import is not available)
 ```js
 const fetch = require('./node-fetch-patch-all');
 ```
