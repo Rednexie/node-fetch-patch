@@ -22,10 +22,10 @@ For example, if the fetch function was imported from nodejs native fetch api:
 
 ```js
 > console.log(fetch)
-[AsyncFunction: fetch] { patchType: 0 }
+[AsyncFunction: fetch] { patchType: 0 }<br>
 > console.log(global.patchType)
-0
-> console.log(process.env.PATCHTYPE
+0<br>
+> console.log(process.env.PATCHTYPE<br>
 0
 ```
 
