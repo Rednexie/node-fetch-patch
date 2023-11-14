@@ -22,8 +22,7 @@ else{
         exported = nodeFetch2
         // checking for node-fetch@=<2.6.1, if found exporting it.
         // if this throws an error:
-        // commonJS require for node-fetch is not available, so node-fetch doesn't exist or its version is higher than 2.6.1 
-        // trying to import node-fetch using commonJS import
+        // this file will not try import, since its unavailable in versions before 10.0
         patchType = 2;
         process.env.PATCHTYPE = 2;
         global.patchType = 2;
@@ -33,18 +32,27 @@ else{
          patchType = undefined;
          delete process.env.PATCHTYPE;
          global.patchType = undefined;
-        require("child_process").exec("npm install node-fetch", (err, stdout, stderr) => {
-         if(err) console.error(err)
-         if(stderr) console.log(stderr)
-         if(stdout) console.log(stdout)
-
-         require("child_process").spawn(process.execPath, [module.parent.filename],{
-             cwd: process.cwd (),
-             detached: true,
-             stdio: 'inherit'
-           });
-         console.log("restarting " + module.parent.filename)
-     })
+         require("child_process").exec("npm install node-fetch", (err, stdout, stderr) => {
+            if(err) console.error(err)
+            if(stderr) console.log(stderr)
+            if(stdout) console.log(stdout)
+            if(!require.main){
+                require("child_process").spawn(process.execPath, [],{
+                    cwd: process.cwd (),
+                    detached: true,
+                    stdio: 'inherit'
+                });
+                console.log("[node-fetch-patch] restarting node console")
+            }
+            else{
+                require("child_process").spawn(process.execPath, [require.main.filename],{
+                    cwd: process.cwd (),
+                    detached: true,
+                    stdio: 'inherit'
+                });
+                console.log("[node-fetch-patch] restarting " + require.main.filename)
+            }
+        })
     }
 }
 // exporting the found fetch method
