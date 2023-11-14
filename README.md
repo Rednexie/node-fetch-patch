@@ -64,7 +64,7 @@ From node-fetch versions above 2.6.1 using async import (unavailable in `node-fe
 > console.log(process.env.PATCHTYPE)
 '3'
 ```
-if no fetch function found (this means node-fetch-patch is installing it and will restart the main process):
+if no fetch function found (this means node-fetch-patch is installing it and will restart the main process or node console):
 ```js
 > console.log(fetch)
 { patchType: undefined }
