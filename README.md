@@ -12,7 +12,7 @@ const fetch = require('./node-fetch-patch');
 - If any of those work, it installs node-fetch using node package manager.
 
 # How do I know where 'fetch' was imported from?
-node-fetch-patch will add a property to let you know this:
+node-fetch-patch will add a some properties to let you know this:
 - environment variables `process.env.PATCHTYPE`
 - global `global.patchType`
 - fetch `fetch.patchType`
