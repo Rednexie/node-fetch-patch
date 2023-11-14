@@ -20,14 +20,14 @@ node-fetch-patch will add a property to let you know this:
 
 For example, if the fetch function was imported from nodejs native fetch api:
 
-> console.log(fetch)
 ```js
+> console.log(fetch)
 [AsyncFunction: fetch] { patchType: 0 }
-```
 > console.log(global.patchType)
 0
 > console.log(process.env.PATCHTYPE
 0
+```
 
 From node-fetch versions below 2.6.1 using CommonJS require:
 ```js
