@@ -19,13 +19,23 @@ node-fetch-patch will add a property to let you know this:
 
 
 For example, if the fetch function was imported from nodejs' native fetch api:
-*[ AsyncFunction: fetch ] { patchType: 0 }*
+```js
+[ AsyncFunction: fetch ] { patchType: 0 }
+```
 From node-fetch versions below 2.6.1 using CommonJS require:
-*[ AsyncFunction: fetch ] { patchType: 2 }*
+```js
+[ AsyncFunction: fetch ] { patchType: 2 }
+```
 From node-fetch versions above 2.6.1 using async import:
-*[ AsyncFunction: fetch ] { patchType: 2 }*
+```js
+[ AsyncFunction: fetch ] { patchType: 2 }
+```
 From node-fetch versions below 2.6.1 using CommonJS require:
-*[ AsyncFunction: fetch ] { patchType: 2 }*
+```js
+[ AsyncFunction: fetch ] { patchType: 2 }
+```
 if no fetch function found (node-fetch-patch will install node-fetch and restart the script):
-*{ patchType: undefined }*
+```js
+{ patchType: undefined }
+```
 
