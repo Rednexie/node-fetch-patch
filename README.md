@@ -33,18 +33,47 @@ For example, if the fetch function was imported from nodejs native fetch api:
 
 From node-fetch versions below 2.6.1 using CommonJS require:
 ```js
+> console.log(fetch)
 [AsyncFunction: fetch] { patchType: 2 }
+
+> console.log(global.patchType)
+2
+
+> console.log(process.env.PATCHTYPE
+'2'
 ```
+
 From node-fetch versions above 2.6.1 using async import:
 ```js
+> console.log(fetch)
 [AsyncFunction: fetch] { patchType: 3 }
+
+> console.log(global.patchType)
+3
+
+> console.log(process.env.PATCHTYPE
+'3'
 ```
-if no fetch function found (this means node-fetch-patch is it and will restart the main process):
+if no fetch function found (this means node-fetch-patch is installing it and will restart the main process):
 ```js
+> console.log(fetch)
 { patchType: undefined }
+
+> console.log(global.patchType)
+undefined
+
+> console.log(process.env.PATCHTYPE
+undefined
 ```
 Or if node-fetch-patch couldn't export the fetch function (mostly because of an error):
 ```js
+> console.log(fetch)
 { patchType: null }
+
+> console.log(global.patchType)
+null
+
+> console.log(process.env.PATCHTYPE
+'null'
 ```
 
