@@ -1,5 +1,5 @@
 # node-fetch-patch
-a patch of fetch function using node-fetch or nodejs api's native fetch method
+a nodejs fetch polyfill/patch, ensures the availability across environments and versions. 
 
 # How does it work?
 import the file
