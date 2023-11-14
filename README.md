@@ -2,14 +2,18 @@
 a nodejs fetch polyfill/patch, ensures the availability across environments and versions. 
 
 # How does it work?
-import the file
+import the main file(v10.0 - 20.8.1)
 ```js
 const fetch = require('./node-fetch-patch');
+```
+or for all versions(without trying async import for node-fetch versions after 2.6.1)
+```js
+const fetch = require('./node-fetch-patch-all');
 ```
 - Firstly, the module checks if nodejs native fetch api (built-in) is supported.
 - If not, it checks for a node-fetch installation(specifically below 2.6.1), and tries to do a CommonJS require.
 - If it doesn't work, tries to import node-fetch with async import function. This works for the verions above 2.6.1.
-- If any of those work, it installs node-fetch using node package manager.
+- If any of those work, it installs node-fetch using node package manager, then restarts the script/console.
 
 # How do I know where 'fetch' was imported from?
 node-fetch-patch will add a some properties to let you know this:
@@ -43,7 +47,7 @@ From node-fetch versions below 2.6.1 using CommonJS require:
 '2'
 ```
 
-From node-fetch versions above 2.6.1 using async import:
+From node-fetch versions above 2.6.1 using async import (unavailable in `node-fetch-patch-all.js`):
 ```js
 > console.log(fetch)
 [AsyncFunction: fetch] { patchType: 3 }
