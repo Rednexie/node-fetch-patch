@@ -30,7 +30,7 @@ From node-fetch versions above 2.6.1 using async import:
 ```js
 [AsyncFunction: fetch] { patchType: 3 }
 ```
-if no fetch function found (node-fetch-patch will install node-fetch and restart the script):
+if no fetch function found (this means node-fetch-patch is it and will restart the main process):
 ```js
 { patchType: undefined }
 ```
