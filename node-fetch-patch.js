@@ -24,9 +24,9 @@ else{
         // if this throws an error:
         // commonJS require for node-fetch is not available, so node-fetch doesn't exist or its version is higher than 2.6.1 
         // trying to import node-fetch using commonJS import
-        patchType = 3;
-        process.env.PATCHTYPE = 3;
-        global.patchType = 3;
+        patchType = 2;
+        process.env.PATCHTYPE = 2;
+        global.patchType = 2;
     }
     catch(err){
         try{
