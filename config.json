@@ -1,7 +1,0 @@
-{
-    "mysql": "mysql://admin:admin@localhost:3306/dbn",
-    "mongodb": "mongodb://admin:admin@localhost:27017/rednexie",
-    "quickdb": "sqlite://./quick.db",
-    "permadb": "sqlite://perma.db",
-    "rethinkdb": "rethinkdb://admin:admin@localhost:28015/rednexie"
-}
